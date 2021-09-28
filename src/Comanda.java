@@ -10,7 +10,6 @@ public class Comanda {
 
         this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
-
     }
 
 
