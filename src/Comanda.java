@@ -14,8 +14,6 @@ public class Comanda {
     }
 
 
-
-
     // method per afegir element a la llista compra
     // method per retornar el preu total
     // method per retornar la llista compra
@@ -30,6 +28,21 @@ public class Comanda {
         // method per retornar quantitat
         // constructor
         // method per afegir quantitat
+
+
+    }
+
+    public static void main(String[] args) {
+        Manager g = ... new ProductManagerImpl();
+
+        g.addProduct("cafe", 2);
+        g.addUser("33333", "toni", ..)
+
+        Pedido p = new Pedido("3333");
+        p.addLP(3, "donnuts");
+        p.addLP(4, "cafe");
+
+        g.addOrder(p);
 
 
     }
