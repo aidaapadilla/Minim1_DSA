@@ -4,7 +4,6 @@ public abstract class Producto {
 
     public abstract double getPrecio() ;
 
-
 }
 abstract class Cafe extends Producto{
     double precio=1;
@@ -50,6 +49,17 @@ abstract class Cheesecake extends Producto
 abstract class Vurger extends Producto
 {
     //oh fuck that's vegan
+    double precio=5;
+    double ventas;
 
+    @java.lang.Override
+    public void ventaRealizada(int numero) {
+        this.ventas=this.ventas+numero;
+    }
+
+    @java.lang.Override
+    public double getPrecio() {
+        return precio;
+    }
 }
 
