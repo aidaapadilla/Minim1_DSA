@@ -2,12 +2,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Comanda {
-
     private List<ElementComanda> llistaCompra;
     private int preuTotal;
 
     public Comanda(){ // Constructor
-
         this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
     }
@@ -42,7 +40,6 @@ public class Comanda {
         p.addLP(4, "cafe");
 
         g.addOrder(p);
-
 
     }
 
