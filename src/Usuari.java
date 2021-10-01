@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuari {
-    List<Comanda> llistacomandes = new ArrayList<Comanda>(10);
+    List<Comanda> llistacomandes = new ArrayList<Comanda>(10); //Llista de comandes del usuari
     String nomusuari;
     double numcomandes=0;
 

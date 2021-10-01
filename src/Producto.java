@@ -1,8 +1,8 @@
-public abstract class Producto {
+public abstract class Producto{
 
     public abstract void ventaRealizada(int numero);
 
-    public abstract double getPrecio() ;
+    public abstract double getPrecio();
 
 }
 abstract class Cafe extends Producto{
