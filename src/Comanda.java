@@ -4,17 +4,19 @@ import java.util.List;
 public class Comanda {
 
     private String usuari;
-    private List<Producto> llistaCompra;
+    private List<ElementComanda> llistaCompra;
     private int preuTotal;
 
 
-    public Comanda(String user){ // Constructor
+    public Comanda(String user) { // Constructor
         this.usuari = user;
         this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
     }
 
-    public void addLP(int quantitat, string usuari){
+    public void addLP(int quantitat, String producto) {
+
+        this.llistaCompra.add(new ElementComanda(producto, quantitat);
 
     }
 
@@ -22,21 +24,24 @@ public class Comanda {
     // method per retornar el preu total
     // method per retornar la llista compra
 
+}
+
 /*
-    public static class ElementComanda{
 
-        private Producto producte;
-        private int quantitat;
+    public static void main(String[] args) {
+        Manager g = ... new ProductManagerImpl();
 
-        // method per afegir una venta a producte
-        // method per retornar producto
-        // method per retornar quantitat
-        // constructor
-        // method per afegir quantitat
+        g.addProduct("cafe", 2);
+        g.addUser("33333", "toni", ..)
 
+        Pedido p = new Pedido("3333");
+        p.addLP(3, "donnuts");
+        p.addLP(4, "cafe");
+
+        g.addOrder(p);
 
     }
     */
 
 
-}
+
