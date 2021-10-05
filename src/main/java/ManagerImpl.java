@@ -3,12 +3,21 @@ import java.util.List;
 import java.util.Queue;
 
 public class ManagerImpl implements Manager{
-    Queue<Comanda> misComandas = new LinkedList<Comanda>(); //Aqui hi haurà la cua de comandes
+    Queue<Comanda> misComandas = new LinkedList<Comanda>(); //Aqui hi haurà la cua de comandes per realitzar-les
     List<Comanda> comandasRealizadas = new LinkedList<Comanda>(); //Aqui guardem les comandes
-    Usuari usuari = new Usuari("Joana");
+    List<Producto> listaProductos;
+    Cafe cafe;
+    RedVelvet redVelvet;
+    CheeseCake cheeseCake;
+    Vurger vurger;
 
     @Override
     public List<Producto> ordenarProductosPrecio() throws EmptyList {
+        int i=1;
+        while(i<=4)
+        {
+
+        }
         return null;
     }
 

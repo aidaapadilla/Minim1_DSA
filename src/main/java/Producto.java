@@ -3,6 +3,9 @@ public abstract class Producto{
     public abstract void ventaRealizada(int numero);
 
     public abstract double getPrecio();
+    public void newCafe(){
+        Cafe cafe = new Cafe();
+    }
 
     /*
     private double precio;
