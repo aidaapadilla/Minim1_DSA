@@ -1,13 +1,21 @@
 public class ElementComanda {
 
-    private Producto producte;
+    private String producto;
     private int quantitat;
 
-    public ElementComanda(Producto producto, int quantitat){
+    public ElementComanda(String producto, int quantitat){
 
-        this.producte = producto;
+        this.producto = producto;
         this.quantitat = quantitat;
 
+    }
+
+    public String getNombreProducto(){
+        return this.producto;
+    }
+
+    public int getQuantitat(){
+        return this.quantitat;
     }
 
 }

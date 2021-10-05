@@ -4,7 +4,7 @@ import java.util.List;
 public class Comanda {
 
     private String usuariID;
-    private List<ElementComanda> llistaCompra;
+    private List<ElementComanda> llistaCompra = new LinkedList<ElementComanda>();
     private int preuTotal;
 
 
@@ -18,7 +18,11 @@ public class Comanda {
         return this.usuariID;
     }
 
-    public void addLP(int quantitat, Producto producto) {
+    public List<ElementComanda> getLlistaCompra(){
+        return this.llistaCompra;
+    }
+
+    public void addLP(int quantitat, String producto) {
 
         this.llistaCompra.add(new ElementComanda(producto, quantitat));
 

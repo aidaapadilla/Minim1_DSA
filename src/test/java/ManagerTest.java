@@ -10,21 +10,29 @@ public class ManagerTest {
     public void SetUp(){
         Manager manager = new ManagerImpl();
 
-        // manager.addProduct("donut", "dddd", 2);
+        Producto cafe = new Producto("Cafe",0.8);
+        Producto cheesecake = new Producto("Cheese Cake",2.5);
+        Producto croissant = new Producto("Croissant",1.2);
+        Producto sucdetaronja = new Producto("Suc de taronja",4.1);
+        Producto donut = new Producto("Donut",1.30);
 
-        // manager.addUser("22222222X", "Aida");
+        manager.añadirProductoLista(cafe);
+        manager.añadirProductoLista(cheesecake);
+        manager.añadirProductoLista(croissant);
+        manager.añadirProductoLista(sucdetaronja);
+        manager.añadirProductoLista(donut);
 
         Comanda comanda = new Comanda("2222222X");
-        comanda.addLP(2, "donut");
-        comanda.addLP(1,"cafe latte");
+        comanda.addLP(2, "Donut");
+        comanda.addLP(1, "Cafe");
 
         manager.realizarPedido(comanda);
-        manager.servirPedido(); //Apuntem la venta i va creant la llista de comandes
-        List<Comanda> miLista = new List<Comanda>();
-        miLista=manager.listadoPedidosUser("222222X"); //Ens retorna la llista de comandes del usuari
 
-        List<Producto> miLista2 = new List<Producto>();
-        miLista2=manager.ordenarProductosVentas();
+        manager.servirPedido();
+
+        List<Comanda> miLista = manager.listadoPedidosUser("222222X");
+
+        List<Producto> miLista2 = manager.ordenarProductosVentas();
 
     }
 

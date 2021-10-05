@@ -19,9 +19,19 @@ public class ManagerImpl implements Manager{
 
     @Override
     public void servirPedido() {
+
+        for(ElementComanda e : misComandas.peek().getLlistaCompra()){
+            for(Producto p : listaProductos){
+                if (e.getNombreProducto() == p.getNombre()){
+                    p.ventaRealizada(e.getQuantitat());
+                }
+            }
+        }
+
         String usuariID = misComandas.peek().getUsuariID();
         Usuari usuari = this.usuaris.get(usuariID);
         usuari.afegirComanda(misComandas.poll());
+
     }
 
     @Override
