@@ -16,7 +16,7 @@ public class Comanda {
 
     public void addLP(int quantitat, String producto) {
 
-        this.llistaCompra.add(new ElementComanda(producto, quantitat);
+        this.llistaCompra.add(new ElementComanda(producto, quantitat));
 
     }
 

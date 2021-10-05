@@ -5,7 +5,7 @@ import java.util.Queue;
 public class ManagerImpl implements Manager{
     Queue<Comanda> misComandas = new LinkedList<Comanda>(); //Aqui hi haurà la cua de comandes
     List<Comanda> comandasRealizadas = new LinkedList<Comanda>(); //Aqui guardem les comandes
-    Usuari usuari = new Usuari();
+    Usuari usuari = new Usuari("Joana");
 
     @Override
     public List<Producto> ordenarProductosPrecio() throws EmptyList {
