@@ -1,13 +1,13 @@
-package test.java;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 
-public class Test {
+public class ManagerTest {
 
-
-    public static void main(String[] args) {
-
-
+    @Before
+    public void SetUp(){
         Manager manager = new ManagerImpl();
 
         // manager.addProduct("donut", "dddd", 2);
