@@ -27,4 +27,9 @@ public class ManagerTest {
         miLista2=manager.ordenarProductosVentas();
 
     }
+
+    @Test
+    public void FerComanda(){
+        Assert.
+    }
 }

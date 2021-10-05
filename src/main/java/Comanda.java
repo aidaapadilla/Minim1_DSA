@@ -3,18 +3,22 @@ import java.util.List;
 
 public class Comanda {
 
-    private String usuari;
+    private String usuariID;
     private List<ElementComanda> llistaCompra;
     private int preuTotal;
 
 
     public Comanda(String user) { // Constructor
-        this.usuari = user;
+        this.usuariID = user;
         this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
     }
 
-    public void addLP(int quantitat, String producto) {
+    public String getUsuariID(){
+        return this.usuariID;
+    }
+
+    public void addLP(int quantitat, Producto producto) {
 
         this.llistaCompra.add(new ElementComanda(producto, quantitat));
 

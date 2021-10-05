@@ -1,9 +1,9 @@
 public class ElementComanda {
 
-    private String producte;
+    private Producto producte;
     private int quantitat;
 
-    public ElementComanda(String producto, int quantitat){
+    public ElementComanda(Producto producto, int quantitat){
 
         this.producte = producto;
         this.quantitat = quantitat;
