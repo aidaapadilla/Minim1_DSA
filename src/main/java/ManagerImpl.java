@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class ManagerImpl implements Manager{
     Queue<Comanda> misComandas = new LinkedList<Comanda>(); //Aqui hi haurà la cua de comandes per realitzar-les
@@ -13,11 +11,11 @@ public class ManagerImpl implements Manager{
 
     @Override
     public List<Producto> ordenarProductosPrecio() throws EmptyList {
-        int i=1;
-        while(i<=4)
-        {
+        listaProductos.add(cafe);
+        listaProductos.add(redVelvet);
+        listaProductos.add(cheeseCake);
+        listaProductos.add(vurger);
 
-        }
         return null;
     }
 
