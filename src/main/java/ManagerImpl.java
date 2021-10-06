@@ -5,11 +5,13 @@ public class ManagerImpl implements Manager {
     private Queue<Comanda> misComandas = new LinkedList<Comanda>();
     private List<Producto> listaProductos = new LinkedList<Producto>();
     private Hashtable<String, Usuari> usuaris = new Hashtable<String, Usuari>();
+    private OrdenarProductoPerVentas o;
 
 
     public List<Producto> ordenarProductosPrecio(){
-        Collections.sort(this.listaProductos);
-        return this.listaProductos;
+        List<Producto> listaOrdenada = this.listaProductos;
+        Collections.sort(listaOrdenada);
+        return listaOrdenada;
     }
 
     public void realizarPedido(Comanda comanda) {
@@ -36,9 +38,13 @@ public class ManagerImpl implements Manager {
         return this.usuaris.get(usuariID).getLlistaComandesServides();
     }
     @Override
-    public List<Producto> ordenarProductosVentas() throws EmptyList {
-        return null;
+    public List<Producto> ordenarProductosVentas(){
+
+        List<Producto> listaOrdenada = this.listaProductos;
+        Collections.sort(listaOrdenada,new OrdenarProductoPerVentas());
+        return listaOrdenada;
     }
+
     @Override
     public void añadirProductoLista(Producto producto){
         this.listaProductos.add(producto);

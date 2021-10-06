@@ -27,5 +27,7 @@ public class Producto implements Comparable<Producto>{
         return res;
     }
 
-
+    public double getVentas() {
+        return ventas;
+    }
 }

@@ -28,7 +28,7 @@ public class ManagerTest {
         Comanda comanda = new Comanda("2222222X");
         comanda.addLP(2, "Donut");
         comanda.addLP(1, "Cafe");
-        comanda.addLP(4,"croissant");
+        comanda.addLP(4,"Croissant");
 
         manager.realizarPedido(comanda);
 
@@ -53,7 +53,8 @@ public class ManagerTest {
 
         manager.servirPedido();
 
-        List<Producto> miListaOrdenada = manager.ordenarProductosPrecio();
+        List<Producto> miListaOrdenadaPrecio = manager.ordenarProductosPrecio();
+        List<Producto> miListaOrdenadaVentas = manager.ordenarProductosVentas();
 
     }
 
