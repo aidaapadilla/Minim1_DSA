@@ -7,19 +7,19 @@ public class ManagerImpl implements Manager {
     private Hashtable<String, Usuari> usuaris = new Hashtable<String, Usuari>();
 
 
-    @Override
     public List<Producto> ordenarProductosPrecio() throws EmptyList {
-        Collections.sort(this.listaProductos);
+        //Collections.sort(this.listaProductos);
         return this.listaProductos;
     }
 
-    @Override
     public void realizarPedido(Comanda comanda, Usuari a) {
-        this.misComandas.add(comanda);
+        getComanda().add(comanda);
         a.llistaComandes.add(comanda);
         a.numcomandes++;
     }
-
+    public Queue<Comanda> getComanda(){
+        return this.misComandas;
+    }
 
     @Override
     public void servirPedido() {

@@ -1,40 +1,75 @@
-public abstract class Producto implements Comparable<Producto> {
-
+public abstract class Producto{
     public abstract void ventaRealizada(int numero);
-
     public abstract double getPrecio();
 
-    public int compareTo(Producto o) {
-        return (int) (this.getPrecio() - o.getPrecio());
-    }
 }
+class Cafe extends Producto{
 
-    /*
-
-    private double precio;
+    private double precio=1;
     private double ventas;
-
-    public Producto(String nombre, double precio) {
-        this.precio = precio;
-        this.nombre = nombre;
-        this.ventas = 0;
+    public Cafe()
+    {
+        this.ventas=0;
     }
-
-    public String getNombre(){
-        return this.nombre;
-    }
-
-    public void ventaRealizada(int numero){
-        this.ventas = this.ventas + numero;
-    }
-
-    public double getPrecio(){
+    @Override
+    public double getPrecio() {
         return this.precio;
     }
-
-    public int compareTo(Producto a)
-    {
-        int res = (int) (this.getPrecio()-a.getPrecio());
-        return res;
+    @Override
+    public void ventaRealizada(int numero) {
+        this.ventas=this.ventas+numero;
     }
-*/
+}
+class RedVelvet extends Producto{
+    private double precio=3.5; //Tall de redvelvet
+    private double ventas;
+
+    public RedVelvet(){
+        this.ventas=0;
+    }
+    @Override
+    public double getPrecio() {
+        return this.precio;
+    }
+    @Override
+    public void ventaRealizada(int numero) {
+        this.ventas=this.ventas+numero;
+    }
+}
+class CheeseCake extends Producto
+{
+    private double precio=3.5;
+    private double ventas;
+    public CheeseCake()
+    {
+        this.ventas=0;
+    }
+    @Override
+    public double getPrecio() {
+        return this.precio;
+    }
+    @Override
+    public void ventaRealizada(int numero) {
+        this.ventas=this.ventas+numero;
+    }
+}
+class Vurger extends Producto
+{
+  //oh fuck that's vegan
+    private double precio=5;
+    private double ventas;
+
+    public Vurger()
+    {
+        this.ventas=0;
+    }
+
+    @Override
+    public void ventaRealizada(int numero) {
+        this.ventas=this.ventas+numero;
+    }
+    @Override
+    public double getPrecio() {
+        return precio;
+    }
+}

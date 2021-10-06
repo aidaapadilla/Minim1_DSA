@@ -30,6 +30,7 @@ public class Usuari {
             return this.usuariID;
     }
     public void afegirComanda(Comanda comanda){
+
         this.llistaComandesServides.add(comanda);
     }
 

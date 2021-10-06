@@ -6,19 +6,27 @@ public class ManagerTest {
     @Before
     public static void main(String[] args) {
         Manager manager = new ManagerImpl();
-        // manager.addProduct("donut", "dddd", 2);
-
-        // manager.addUser("22222222X", "Aida");
         RedVelvet redVelvet = new RedVelvet();
         Cafe cafe_latte = new Cafe();
+        Vurger vurger_cangrevurger = new Vurger();
         Usuari Jordi = new Usuari("Jordi","48144497X");
-        Comanda comanda = new Comanda(Jordi);
+        manager.añadirUsuario(Jordi);
+        Usuari Joana = new Usuari("Joana", "77516325Z");
+        manager.añadirUsuario(Joana);
         manager.añadirProductoLista(redVelvet);
         manager.añadirProductoLista(cafe_latte);
-        manager.añadirUsuario(Jordi);
-        comanda.addLP(2, redVelvet);
-        comanda.addLP(1, cafe_latte);
-        manager.realizarPedido(comanda,Jordi);
+        manager.añadirProductoLista(vurger_cangrevurger);
+        Comanda comanda1jordi = new Comanda(Jordi);
+        comanda1jordi.addLP(2, redVelvet);
+        comanda1jordi.addLP(1, cafe_latte);
+        Comanda comanda1joana = new Comanda(Joana);
+        comanda1joana.addLP(1, redVelvet);
+        comanda1joana.addLP(1, cafe_latte);
+        comanda1joana.addLP(3, vurger_cangrevurger);
+
+        manager.realizarPedido(comanda1jordi,Jordi);
+        manager.realizarPedido(comanda1joana,Joana);
+        manager.servirPedido();
         manager.servirPedido();
 
         //Fins aquest punt, es pot fer una comanda i servirla

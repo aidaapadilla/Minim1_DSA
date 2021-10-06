@@ -6,14 +6,13 @@ public class Comanda {
 
     private String usuari;
     private String usuariID;
-    private List<ElementComanda> llistaCompra;
+    private List<ElementComanda> llistaCompra = new LinkedList<ElementComanda>();
     private double preuTotal;
 
 
     public Comanda(Usuari user) { // Constructor
         this.usuari = user.getNomUsuari();
         this.usuariID = user.getUsuariID();
-        this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
     }
 
