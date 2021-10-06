@@ -1,47 +1,31 @@
+import javax.swing.text.Element;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Comanda {
 
     private String usuari;
+    private String usuariID;
     private List<ElementComanda> llistaCompra;
-    private int preuTotal;
+    private double preuTotal;
 
 
-    public Comanda(String user) { // Constructor
-        this.usuari = user;
+    public Comanda(Usuari user) { // Constructor
+        this.usuari = user.getNomUsuari();
+        this.usuariID = user.getUsuariID();
         this.llistaCompra = new LinkedList<ElementComanda>();
         this.preuTotal = 0;
     }
 
-    public void addLP(int quantitat, String producto) {
-
-        this.llistaCompra.add(new ElementComanda(producto, quantitat));
-
+    public String getUsuariID() {
+        return this.usuariID;
     }
 
-    // method per afegir element a la llista compra
-    // method per retornar el preu total
-    // method per retornar la llista compra
+    public void addLP(int quantitat, Producto producto) {
+        producto.ventaRealizada(quantitat);
+        ElementComanda comanda = new ElementComanda(producto,quantitat);
+        this.llistaCompra.add(comanda);
+        preuTotal=this.preuTotal+comanda.getPreutotal();
+    }
 
 }
-
-/*
-
-    public static void main(String[] args) {
-        Manager g = ... new ProductManagerImpl();
-
-        g.addProduct("cafe", 2);
-        g.addUser("33333", "toni", ..)
-
-        Pedido p = new Pedido("3333");
-        p.addLP(3, "donnuts");
-        p.addLP(4, "cafe");
-
-        g.addOrder(p);
-
-    }
-    */
-
-
-

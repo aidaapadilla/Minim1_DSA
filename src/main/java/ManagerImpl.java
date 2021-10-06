@@ -1,36 +1,46 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class ManagerImpl implements Manager{
-    Queue<Comanda> misComandas = new LinkedList<Comanda>(); //Aqui hi haurà la cua de comandes
-    List<Comanda> comandasRealizadas = new LinkedList<Comanda>(); //Aqui guardem les comandes
-    Usuari usuari = new Usuari("Joana");
+
+    private Queue<Comanda> misComandas = new LinkedList<Comanda>();
+    private List<Producto> listaProductos = new LinkedList<Producto>();
+    private Hashtable<String,Usuari> usuaris = new Hashtable<String,Usuari>();
 
     @Override
     public List<Producto> ordenarProductosPrecio() throws EmptyList {
-        return null;
+
+        //Collections.sort(this.listaProductos);
+        return this.listaProductos;
     }
 
     @Override
-    public void realizarPedido(Comanda comanda) {
+    public void realizarPedido(Comanda comanda,Usuari a) {
+        this.misComandas.add(comanda);
+        a.llistacomandes.add(comanda);
+        a.numcomandes++;
 
     }
 
     @Override
-    public Comanda servirPedido() {
-        this.comandasRealizadas.add(misComandas.peek());
-        return misComandas.peek(); //Comanda servida y guardada
+    public void servirPedido() {
+        String usuariID = misComandas.peek().getUsuariID();
+        Usuari usuari = this.usuaris.get(usuariID);
+        usuari.afegirComanda(misComandas.poll());
     }
-
     @Override
-    public List<Comanda> listadoPedidosUser(String nombre) {
-        //Aqui falta guardar la llista de comandes
-        return null;
+    public List<Comanda> listadoPedidosUser(String usuariID) {
+        return this.usuaris.get(usuariID).getLlistaComandesServides();
     }
-
     @Override
     public List<Producto> ordenarProductosVentas() throws EmptyList {
         return null;
     }
+    @Override
+    public void añadirProductoLista(Producto producto){
+        this.listaProductos.add(producto);}
+    @Override
+    public void añadirUsuario(Usuari usuari){
+        usuaris.put(usuari.getUsuariID(), usuari);
+    }
+
 }

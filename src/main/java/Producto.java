@@ -3,6 +3,9 @@ public abstract class Producto{
     public abstract void ventaRealizada(int numero);
 
     public abstract double getPrecio();
+    public int compareTo(Producto o) {
+        return (int)(this.getPrecio() - o.getPrecio());
+    }
 
     /*
     private double precio;
@@ -17,78 +20,5 @@ public abstract class Producto{
     }
     */
 
-}
-
-abstract class Cafe extends Producto{
-    private double precio=1;
-    private double ventas;
-    public Cafe()
-    {
-        this.ventas=0;
-    }
-    @Override
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-abstract class RedVelvet extends Producto{
-    private double precio=3.5; //Tall de redvelvet
-    private double ventas;
-    public RedVelvet(){
-        this.ventas=0;
-    }
-    @Override
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-abstract class CheeseCake extends Producto
-{
-    private double precio=3.5;
-    private double ventas;
-    public CheeseCake()
-    {
-        this.ventas=0;
-    }
-    @Override
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-abstract class Vurger extends Producto
-{
-    //oh fuck that's vegan
-    private double precio=5;
-    private double ventas;
-
-    public Vurger()
-    {
-        this.ventas=0;
-    }
-
-    @java.lang.Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-
-    @java.lang.Override
-    public double getPrecio() {
-        return precio;
-    }
 }
 
