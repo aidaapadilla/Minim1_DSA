@@ -7,22 +7,25 @@ public class ManagerImpl implements Manager {
     private Hashtable<String, Usuari> usuaris = new Hashtable<String, Usuari>();
 
 
-    public List<Producto> ordenarProductosPrecio() throws EmptyList {
-        //Collections.sort(this.listaProductos);
+    public List<Producto> ordenarProductosPrecio(){
+        Collections.sort(this.listaProductos);
         return this.listaProductos;
     }
 
-    public void realizarPedido(Comanda comanda, Usuari a) {
-        getComanda().add(comanda);
-        a.llistaComandes.add(comanda);
-        a.numcomandes++;
-    }
-    public Queue<Comanda> getComanda(){
-        return this.misComandas;
+    public void realizarPedido(Comanda comanda) {
+        this.misComandas.add(comanda);
     }
 
     @Override
     public void servirPedido() {
+        for(ElementComanda e : misComandas.peek().getLlistaCompra()){
+            for(Producto p : listaProductos){
+                if (e.getNombreProducto() == p.getNombre()){
+                    p.ventaRealizada(e.getQuantitat());
+                }
+            }
+        }
+
         String usuariID = misComandas.peek().getUsuariID();
         Usuari usuari = this.usuaris.get(usuariID);
         usuari.afegirComanda(misComandas.poll());
@@ -44,5 +47,6 @@ public class ManagerImpl implements Manager {
     public void añadirUsuario(Usuari usuari){
         usuaris.put(usuari.getUsuariID(), usuari);
     }
+
 
 }

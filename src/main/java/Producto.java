@@ -1,75 +1,31 @@
-public abstract class Producto{
-    public abstract void ventaRealizada(int numero);
-    public abstract double getPrecio();
+public class Producto implements Comparable<Producto>{
 
-}
-class Cafe extends Producto{
-
-    private double precio=1;
+    private String nombre;
+    private double precio;
     private double ventas;
-    public Cafe()
-    {
-        this.ventas=0;
+
+    public Producto(String nombre, double precio) {
+        this.precio = precio;
+        this.nombre = nombre;
+        this.ventas = 0;
     }
-    @Override
-    public double getPrecio() {
+
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public void ventaRealizada(int numero){
+        this.ventas = this.ventas + numero;
+    }
+
+    public double getPrecio(){
         return this.precio;
     }
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-class RedVelvet extends Producto{
-    private double precio=3.5; //Tall de redvelvet
-    private double ventas;
-
-    public RedVelvet(){
-        this.ventas=0;
-    }
-    @Override
-    public double getPrecio() {
-        return this.precio;
-    }
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-class CheeseCake extends Producto
-{
-    private double precio=3.5;
-    private double ventas;
-    public CheeseCake()
+    public int compareTo(Producto a)
     {
-        this.ventas=0;
-    }
-    @Override
-    public double getPrecio() {
-        return this.precio;
-    }
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-}
-class Vurger extends Producto
-{
-  //oh fuck that's vegan
-    private double precio=5;
-    private double ventas;
-
-    public Vurger()
-    {
-        this.ventas=0;
+        int res = (int) (this.getPrecio()-a.getPrecio());
+        return res;
     }
 
-    @Override
-    public void ventaRealizada(int numero) {
-        this.ventas=this.ventas+numero;
-    }
-    @Override
-    public double getPrecio() {
-        return precio;
-    }
+
 }
