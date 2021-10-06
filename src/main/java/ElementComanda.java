@@ -13,4 +13,13 @@ public class ElementComanda {
         public double getPreutotal(){
             return this.preutotal;
         }
+
+    //public String getNombreProducto(){
+        //return this.producto;
+    //}
+
+    public int getQuantitat(){
+        return this.quantitat;
+    }
+
 }

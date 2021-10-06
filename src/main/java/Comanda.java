@@ -21,6 +21,10 @@ public class Comanda {
         return this.usuariID;
     }
 
+    public List<ElementComanda> getLlistaCompra(){
+        return this.llistaCompra;
+    }
+
     public void addLP(int quantitat, Producto producto) {
         producto.ventaRealizada(quantitat);
         ElementComanda comanda = new ElementComanda(producto,quantitat);
