@@ -19,7 +19,6 @@ public class Usuari {
     public void setUsuari(String nom) {
         this.nomusuari = nom;
     }
-
     public Usuari (String nomusuari, String usuariID) {
         this.nomusuari = nomusuari;
         this.usuariID=usuariID;

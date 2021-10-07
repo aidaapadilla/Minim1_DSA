@@ -1,4 +1,3 @@
-import javax.swing.text.Element;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,13 +31,12 @@ public class Comanda {
     }
 
 
-    public void addLP(int quantitat, String producto) {
+    public void addLP(int quantitat, Producto producto) {
         //producto.ventaRealizada(quantitat);
         //ElementComanda comanda = new ElementComanda(producto,quantitat);
         //this.llistaCompra.add(comanda);
-        //preuTotal=this.preuTotal+comanda.getPreutotal();
-
         this.llistaCompra.add(new ElementComanda(producto, quantitat));
+        preuTotal=this.preuTotal+quantitat*producto.getPrecio();
 
     }
 

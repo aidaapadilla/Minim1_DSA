@@ -7,6 +7,9 @@ public class ManagerImpl implements Manager {
     private Hashtable<String, Usuari> usuaris = new Hashtable<String, Usuari>();
     private OrdenarProductoPerVentas o;
 
+    public int GetNumComandes() {
+        return misComandas.size();
+    }
 
     public List<Producto> ordenarProductosPrecio(){
         List<Producto> listaOrdenada = this.listaProductos;
@@ -41,7 +44,7 @@ public class ManagerImpl implements Manager {
     public List<Producto> ordenarProductosVentas(){
 
         List<Producto> listaOrdenada = this.listaProductos;
-        Collections.sort(listaOrdenada,new OrdenarProductoPerVentas());
+        Collections.sort(listaOrdenada,new OrdenarProductoPerVentas().reversed());
         return listaOrdenada;
     }
 
