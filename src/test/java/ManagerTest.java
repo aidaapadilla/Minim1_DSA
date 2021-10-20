@@ -91,35 +91,65 @@ public class ManagerTest {
     }
 
     @Test
-    public void ProbaServirPedido(){
-        Assert.assertEquals(comanda.getUsuariID(),"11111111Z");     //Fa una comanda
-        Assert.assertEquals(manager.GetNumComandes(),1);            //Mirem si s'ha afegit
-        manager.servirPedido();                                           //Li donem el seu menjar
-        Assert.assertEquals(manager.GetNumComandes(),0);            //Mirem si s'ha borrat de les comandes
-
-        List<Comanda> comandas_1 = new LinkedList<>();                    //
+    public void ProbaRealizarPedido() {
+        Comanda miComanda = new Comanda("11111111Z");
+        Assert.assertEquals(manager.GetNumComandes(),0);
+        manager.realizarPedido(comanda);
+        Assert.assertEquals(manager.GetNumComandes(),1);
+    }
+    @Test
+    public void ProbaServirPedido() {
+        Assert.assertEquals(comanda.getUsuariID(), "11111111Z");
+        Assert.assertEquals(manager.GetNumComandes(), 1);
+        manager.servirPedido();
+        Assert.assertEquals(manager.GetNumComandes(), 0);
+    }
+    @Test
+    public void ProbaListadoPedidosUser() {
+        List<Comanda> comandas_1 = new LinkedList<>();
         Comanda miComanda = new Comanda("11111111Z");
         comandas_1.add(miComanda);
-        Assert.assertEquals(manager.listadoPedidosUser("11111111Z"),comandas_1);
-
+        Assert.assertEquals(manager.listadoPedidosUser("11111111Z"), comandas_1);
+    }
+    @Test
+    public void ProbaOrdenarProductosPrecio() {
         List<Producto> misProductos = new LinkedList<>();
-        Producto cafe = new Producto("Cafe",0.8); //1r
-        Producto cheesecake = new Producto("Cheese Cake",2.5); //3r
-        Producto croissant = new Producto("Croissant",1.2); //2n
+        Producto cafe = new Producto("Cafe", 0.8); //1r
+        Producto cheesecake = new Producto("Cheese Cake", 2.5); //3r
+        Producto croissant = new Producto("Croissant", 1.2); //2n
         misProductos.add(cafe);
         misProductos.add(croissant);
         misProductos.add(cheesecake);
-
-        Assert.assertEquals(manager.ordenarProductosPrecio(),misProductos);
-        miComanda.addLP(3,cafe);
-        miComanda.addLP(1,cheesecake);
-        miComanda.addLP(2,croissant);
+        Assert.assertEquals(manager.ordenarProductosPrecio(), misProductos);
+    }
+    @Test
+    public void ProbaOrdenarProductosVentas() {
+        Comanda miComanda = new Comanda("11111111Z");
+        Producto cafe = new Producto("Cafe", 0.8);
+        Producto cheesecake = new Producto("Cheese Cake", 2.5);
+        Producto croissant = new Producto("Croissant", 1.2);
+        miComanda.addLP(3, cafe);
+        miComanda.addLP(1, cheesecake);
+        miComanda.addLP(2, croissant);
         List<Producto> misProductos2 = new LinkedList<>();
         misProductos2.add(cheesecake);
         misProductos2.add(croissant);
         misProductos2.add(cafe);
-        Assert.assertEquals(manager.ordenarProductosVentas(),misProductos2);
+        Assert.assertEquals(manager.ordenarProductosVentas(), misProductos2);
     }
-
+    @Test
+    public void ProbaAñadirProductoLista(){
+        Assert.assertEquals(manager.GetNumProductos(),0);
+        Producto cafe = new Producto("Cafe",1);
+        manager.añadirProductoLista(cafe);
+        Assert.assertEquals(manager.GetNumProductos(),1);
+    }
+    @Test
+    public void ProbaAñadirUsuario(){
+        Assert.assertEquals(manager.GetNumUsuarios(),0);
+        Usuari Aida = new Usuari("Aida","11111111T");
+        manager.añadirUsuario(Aida);
+        Assert.assertEquals(manager.GetNumUsuarios(),1);
+    }
 
 }
